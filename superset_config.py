@@ -3,8 +3,11 @@ import os
 # Database configuration - utiliser SQLite en mémoire pour éviter les problèmes de fichiers
 SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
-# Security
-SECRET_KEY = os.environ.get('SECRET_KEY', 'your-secret-key-change-this-in-production')
+# Security - vraies clés secrètes
+SECRET_KEY = 'superset-secret-key-2024-production-deployment-railway-secure'
+
+# JWT Secret for async queries (32+ caractères)
+JWT_SECRET = 'jwt-secret-key-for-superset-async-queries-railway-2024'
 
 # Feature flags
 FEATURE_FLAGS = {
@@ -12,7 +15,7 @@ FEATURE_FLAGS = {
     "DASHBOARD_NATIVE_FILTERS": True,
     "DASHBOARD_CROSS_FILTERS": True,
     "DASHBOARD_NATIVE_FILTERS_SET": True,
-    "GLOBAL_ASYNC_QUERIES": True,
+    "GLOBAL_ASYNC_QUERIES": False,  # Désactiver les requêtes async pour éviter l'erreur
     "EMBEDDED_SUPERSET": True,
 }
 
