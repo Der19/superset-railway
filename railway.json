@@ -6,8 +6,6 @@
   },
   "deploy": {
     "startCommand": "superset run -h 0.0.0.0 -p $PORT",
-    "healthcheckPath": "/health",
-    "healthcheckTimeout": 100,
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10
   }
