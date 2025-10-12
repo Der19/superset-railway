@@ -1,32 +1,29 @@
 import os
 
-# Database configuration - utiliser SQLite en mémoire pour éviter les problèmes de fichiers
+# Database configuration - SQLite simple
 SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
-# Security - vraies clés secrètes
+# Security
 SECRET_KEY = 'superset-secret-key-2024-production-deployment-railway-secure'
 
-# JWT Secret for async queries (32+ caractères)
-JWT_SECRET = 'jwt-secret-key-for-superset-async-queries-railway-2024'
-
-# Feature flags
+# Configuration minimale pour éviter les erreurs
 FEATURE_FLAGS = {
-    "ENABLE_TEMPLATE_PROCESSING": True,
-    "DASHBOARD_NATIVE_FILTERS": True,
-    "DASHBOARD_CROSS_FILTERS": True,
-    "DASHBOARD_NATIVE_FILTERS_SET": True,
-    "GLOBAL_ASYNC_QUERIES": False,  # Désactiver les requêtes async pour éviter l'erreur
-    "EMBEDDED_SUPERSET": True,
+    "ENABLE_TEMPLATE_PROCESSING": False,
+    "DASHBOARD_NATIVE_FILTERS": False,
+    "DASHBOARD_CROSS_FILTERS": False,
+    "DASHBOARD_NATIVE_FILTERS_SET": False,
+    "GLOBAL_ASYNC_QUERIES": False,
+    "EMBEDDED_SUPERSET": False,
 }
 
-# CORS configuration for public access
+# Désactiver les fonctionnalités problématiques
 WTF_CSRF_ENABLED = False
 WTF_CSRF_TIME_LIMIT = None
 
-# Public access configuration
+# Configuration simple
 PUBLIC_ROLE_LIKE_GAMMA = True
 
-# Cache configuration
+# Cache simple
 CACHE_CONFIG = {
     'CACHE_TYPE': 'simple',
 }
