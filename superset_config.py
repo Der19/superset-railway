@@ -1,10 +1,7 @@
 import os
 
-# Database configuration
-SQLALCHEMY_DATABASE_URI = os.environ.get(
-    'DATABASE_URL', 
-    'sqlite:///superset.db'
-)
+# Database configuration - utiliser SQLite en mémoire pour éviter les problèmes de fichiers
+SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
 # Security
 SECRET_KEY = os.environ.get('SECRET_KEY', 'your-secret-key-change-this-in-production')
