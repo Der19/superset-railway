@@ -3,10 +3,10 @@ import os
 # Database configuration - SQLite en mémoire
 SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
-# Security - SECRET_KEY sécurisée
-SECRET_KEY = 'superset-production-2024-railway-deployment-ultra-secure-key-128-characters-long-for-maximum-security-and-stability'
+# Security - SECRET_KEY simple
+SECRET_KEY = 'superset-simple-key-2024'
 
-# Configuration Superset de base
+# Configuration Superset SANS sécurité
 FEATURE_FLAGS = {
     "ENABLE_TEMPLATE_PROCESSING": True,
     "DASHBOARD_NATIVE_FILTERS": True,
@@ -16,17 +16,26 @@ FEATURE_FLAGS = {
     "EMBEDDED_SUPERSET": True,
 }
 
-# Configuration de sécurité
+# DÉSACTIVER toutes les mesures de sécurité
 WTF_CSRF_ENABLED = False
 WTF_CSRF_TIME_LIMIT = None
+SECURITY_PASSWORD_SALT = None
+SECURITY_PASSWORD_HASH = None
 
-# Configuration d'accès
+# Accès public total
 PUBLIC_ROLE_LIKE_GAMMA = True
+AUTH_TYPE = 0  # AUTH_NONE - Pas d'authentification
+AUTH_USER_REGISTRATION = True
+AUTH_USER_REGISTRATION_ROLE = "Public"
 
-# Cache configuration
+# Cache simple
 CACHE_CONFIG = {
     'CACHE_TYPE': 'simple',
 }
 
-# Logging
+# Logging simple
 LOG_LEVEL = 'INFO'
+
+# Désactiver CORS et autres sécurités
+ENABLE_CORS = False
+RATELIMIT_ENABLED = False
