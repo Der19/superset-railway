@@ -3,10 +3,15 @@ import os
 # Database configuration
 SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
-# Security
+# Security - SECRET_KEY simple
 SECRET_KEY = 'superset-simple-key-2024'
 
-# Basic configuration
+# DÉSACTIVER COMPLÈTEMENT L'AUTHENTIFICATION
+AUTH_TYPE = 0  # AUTH_NONE - Pas d'authentification
+AUTH_USER_REGISTRATION = True
+AUTH_USER_REGISTRATION_ROLE = "Public"
+
+# Configuration Superset
 FEATURE_FLAGS = {
     "ENABLE_TEMPLATE_PROCESSING": True,
     "DASHBOARD_NATIVE_FILTERS": True,
@@ -16,17 +21,23 @@ FEATURE_FLAGS = {
     "EMBEDDED_SUPERSET": True,
 }
 
-# Security settings
+# DÉSACTIVER toutes les sécurités
 WTF_CSRF_ENABLED = False
 WTF_CSRF_TIME_LIMIT = None
+SECURITY_PASSWORD_SALT = None
+SECURITY_PASSWORD_HASH = None
 
-# Access settings
+# Accès public total
 PUBLIC_ROLE_LIKE_GAMMA = True
 
-# Cache
+# Cache simple
 CACHE_CONFIG = {
     'CACHE_TYPE': 'simple',
 }
 
 # Logging
 LOG_LEVEL = 'INFO'
+
+# Désactiver les middlewares de sécurité
+ENABLE_CORS = False
+RATELIMIT_ENABLED = False
