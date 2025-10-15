@@ -1,12 +1,12 @@
 import os
 
-# Database configuration - SQLite en mémoire
+# Database configuration
 SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
-# Security - SECRET_KEY simple
+# Security
 SECRET_KEY = 'superset-simple-key-2024'
 
-# Configuration Superset SANS sécurité
+# Basic configuration
 FEATURE_FLAGS = {
     "ENABLE_TEMPLATE_PROCESSING": True,
     "DASHBOARD_NATIVE_FILTERS": True,
@@ -16,26 +16,17 @@ FEATURE_FLAGS = {
     "EMBEDDED_SUPERSET": True,
 }
 
-# DÉSACTIVER toutes les mesures de sécurité
+# Security settings
 WTF_CSRF_ENABLED = False
 WTF_CSRF_TIME_LIMIT = None
-SECURITY_PASSWORD_SALT = None
-SECURITY_PASSWORD_HASH = None
 
-# Accès public total
+# Access settings
 PUBLIC_ROLE_LIKE_GAMMA = True
-AUTH_TYPE = 0  # AUTH_NONE - Pas d'authentification
-AUTH_USER_REGISTRATION = True
-AUTH_USER_REGISTRATION_ROLE = "Public"
 
-# Cache simple
+# Cache
 CACHE_CONFIG = {
     'CACHE_TYPE': 'simple',
 }
 
-# Logging simple
+# Logging
 LOG_LEVEL = 'INFO'
-
-# Désactiver CORS et autres sécurités
-ENABLE_CORS = False
-RATELIMIT_ENABLED = False
