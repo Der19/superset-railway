@@ -3,27 +3,27 @@ import os
 # Database configuration - SQLite simple
 SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
-# Security
-SECRET_KEY = 'superset-secret-key-2024-production-deployment-railway-secure'
+# Security - SECRET_KEY sécurisée (64 caractères)
+SECRET_KEY = 'superset-production-2024-railway-deployment-secure-key-64-chars-long'
 
-# Configuration minimale pour éviter les erreurs
+# Configuration Superset
 FEATURE_FLAGS = {
-    "ENABLE_TEMPLATE_PROCESSING": False,
-    "DASHBOARD_NATIVE_FILTERS": False,
-    "DASHBOARD_CROSS_FILTERS": False,
-    "DASHBOARD_NATIVE_FILTERS_SET": False,
+    "ENABLE_TEMPLATE_PROCESSING": True,
+    "DASHBOARD_NATIVE_FILTERS": True,
+    "DASHBOARD_CROSS_FILTERS": True,
+    "DASHBOARD_NATIVE_FILTERS_SET": True,
     "GLOBAL_ASYNC_QUERIES": False,
-    "EMBEDDED_SUPERSET": False,
+    "EMBEDDED_SUPERSET": True,
 }
 
-# Désactiver les fonctionnalités problématiques
+# Configuration de sécurité
 WTF_CSRF_ENABLED = False
 WTF_CSRF_TIME_LIMIT = None
 
-# Configuration simple
+# Configuration d'accès
 PUBLIC_ROLE_LIKE_GAMMA = True
 
-# Cache simple
+# Cache configuration
 CACHE_CONFIG = {
     'CACHE_TYPE': 'simple',
 }
